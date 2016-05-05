@@ -1,0 +1,10 @@
+*{margin:0;padding:0;}
+html,body{width: 100%;}
+.answer{width: 100%; margin-top: 10px; }
+.answer p{text-align: center;background:url("images/jiantou_03.png") no-repeat  10px  5px; background-size: 50px 40px; line-height: 50px; font-size:18px; } 
+h1{text-align: center;font-size: 18px; color:#083761;}
+p{text-align: center;font-size: 14px;margin:0;padding:0; margin-top: 20px; line-height: 30px;}
+.slim{width: 95%;margin:0 auto;}
+.slim p.slim_box{border:1px solid #797979; border-bottom: none;}
+.slim table.slim_table{width: 100%;padding:0;margin:0 auto; }
+.slim table.slim_table tr,th{text-align: center;height: 30px;line-height: 30px;}

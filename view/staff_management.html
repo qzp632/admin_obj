@@ -1,0 +1,183 @@
+<!DOCTYPE>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<title>良衣后台管理</title>
+		<link href="../css/css.css" rel="stylesheet" type="text/css" / >
+		<script type="text/javascript" src="../common/jquery.js"></script>
+		<script type="text/javascript" src="../config/config.js"></script>
+		<script type="text/javascript" src="../common/common.js"></script>
+		<script type="text/javascript" src="../common/lang.js"></script>
+<!-- 		<script type="text/javascript" src="../common/logo.js"></script> -->
+		<script type="text/javascript" src="../controller/staff_management.js"></script>
+		<script type="text/javascript" src="../controller/modifyPassword.js"></script>
+
+	</head>
+	<body>
+		<div class="admin_left">
+			<div class="admin_name">后台管理系统</div>
+			<div class="admin_auth">
+				<img src="../images/pic_07.png" alt="管理员头像" class="pic">
+				<span class="auth">
+					<a>Admin</a>
+					<a class="a_auth">管理员</a>
+				</span>
+			</div>
+			<ul class="ul_bj" id="ul_bj">
+
+			</ul>
+		</div>
+		<div class="admin_right">
+			<div class="blue_bj" style="width:100%;height:50px;background:#0f4f7d;border-left:1px solid #1e6498;"></div>
+			<div class="white_bj" id="admin_topp">
+
+			<!-- 	<div class="admin_top" id="admin_top"> -->
+					
+				</div><!--admin_top结束-->
+			</div><!--white_bj结束-->
+			<div class="gray_bj">
+				<div class="content_box">
+					<div class="content_box_top">
+						<div class=content_box_top_pic>
+							<img src="../images/hylb.png"/ alt="员工管理">
+						</div>
+
+						<span>员工管理</span>
+							<p class="order_num factoryList" >
+								工厂列表：<select class="factorys"><option>--请选择--</option></select>
+							</p><br/><br/>
+					</div><!--content_box_top结束-->
+					<div class="content_box_main padding_distance">
+						<div class="box_shadow">
+							<p class="order_num">
+								添加员工
+							</p>
+							<!--添加员工box-->
+							<p class="order_num order_box">
+								<form action="" method="">
+									<table border="0" class="yggl" cellpadding="0" cellspacing="0" width="60%">
+										<tr>
+											<td>员工名字</td>
+											<td><input type="text" class="factory staff_name" name="factoryNname" placeholder="员工名字" /></td>
+										</tr>
+										<tr>
+											<td>电话号码</td>
+											<td>
+												<input type="text" class="factory staff_phone" name="factoryPho" placeholder="电话号码" />
+											</td>
+										</tr>
+										<tr>
+											<td>职位</td>
+											<td>
+												<select class="staff_administration staff_value">
+													<option>--请选择职位--</option>
+														<option value="1">陪衬</option>
+														<option value="2">裁剪</option>
+														<option value="3">开包</option>
+														<option value="4">绣字</option>
+														<option value="5">钉扣</option>
+														<option value="6">检验</option>
+														<option value="7">出货</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td></td>
+											<td>
+												<input type="button" class="factory" id="addbtn" name="sub"value="添加" style="color:#fff;background: #0f4f7d; border:none;" />
+											</td>
+										</tr>
+									</table>
+								</form>
+							</p>
+						</div>
+						<!--合作伙伴-->
+						<div class="box_shadow ">
+							工厂员工
+							<!--合作伙伴box-->
+							<p class="order_num order_box ">
+								<table border="0" cellspacing="0" cellpadding="0" class="partner" width="60%">
+									<tr>
+										<td>名称</td>
+										<td>电话</td>
+										<td>职位</td>
+										<td>OPENID</td>
+										<td>操作</td>
+									</tr>
+								</table>
+							</p>
+						</div>			
+					</div>
+				</div><!--content_box结束-->
+			</div>
+		</div><!--admin-right结束-->
+		<div id="bg"></div>
+		<div id="popbox">
+			<span  onclick="pupclose()">X</span>
+			<p>修改员工信息</p>
+			<form action="" method="">
+				<table border="0" cellspacing="0" cellpadding="0" class="hidden_table">
+					<tr>
+						<td style="width: 50px">名称</td>
+						<td><input type="text" class="user_Name" placeholder="员工名字" />
+						</td>
+					</tr>
+					<tr>
+						<td>电话</td>
+						<td>
+							<input type="text" class="user_Phone" placeholder="请输入电话"/>
+						</td>
+					</tr>
+					<tr>
+						<td>职位</td>
+						<td>
+							<select class="staff_administration option_value">
+								<option>--请选择职位--</option>
+								<option value="1">陪衬</option>
+								<option value="2">裁剪</option>
+								<option value="3">开包</option>
+								<option value="4">绣字</option>
+								<option value="5">钉扣</option>
+								<option value="6">检验</option>
+								<option value="7">出货</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>openid</td>
+						<td>
+							<select class="staff_administration open_Id">
+								<option>--请选择openID--</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<input type="button" name="sub" value="提交" class="hidden_sub" />
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</body>
+	<script type="text/javascript">
+		// function pupopen(){
+	 //        document.getElementById("bg").style.display="block";
+  //           document.getElementById("popbox").style.display="block" ;	
+		// }
+		//关闭修改列表
+		function pupclose(){
+			document.getElementById("bg").style.display="none";
+		    document.getElementById("popbox").style.display="none" ;	
+		}
+
+	</script>
+		<script type="text/javascript">
+		var con = new common();
+		con.leftMenu();
+	</script>
+</html>

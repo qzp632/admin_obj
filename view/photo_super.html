@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<title>良衣后台管理</title>
+		<link href="../css/css.css" rel="stylesheet" type="text/css" / >
+	<link href="../css/normalize.css" rel="stylesheet" type="text/css" / >
+	<script type="text/javascript" src="../common/jquery.js"></script>
+	<script type="text/javascript" src="../config/config.js"></script>
+	<script type="text/javascript" src="../common/common.js"></script>
+	<script type="text/javascript" src="../common/lang.js"></script>
+	<script type="text/javascript" src="../controller/member_list.js"></script>
+	<script type="text/javascript" src="../controller/photo_super.js"></script>
+	<script type="text/javascript" src="../common/fenye.js"></script>
+		<script type="text/javascript" src="../controller/modifyPassword.js"></script>
+	</head>
+	<body>
+		<div class="admin_left">
+			<div class="admin_name">后台管理系统</div>
+			<div class="admin_auth">
+				<img src="../images/pic_07.png" alt="管理员头像" class="pic">
+				<span class="auth">
+					<a>Admin</a>
+					<a class="a_auth">管理员</a>
+				</span>
+			</div>
+			<ul class="ul_bj" id="ul_bj">
+
+			</ul>
+		</div>
+		<div class="admin_right">
+			<div class="blue_bj" style="width:100%;height:50px;background:#0f4f7d;border-left:1px solid #1e6498;"></div>
+			<div class="white_bj">
+				<div class="admin_top"  id="admin_top">
+					
+				</div><!--admin_top结束-->
+			</div><!--white_bj结束-->
+			<div class="gray_bj">
+				<div class="content_box">
+					<div class="content_box_top">
+						<div class=content_box_top_pic>
+							<img src="./../images/hylb.png"/ alt="会员列表">
+						</div>
+						<span>会员列表&nbsp;>&nbsp;照片管理</span>
+					</div><!--content_box_top结束-->
+					<div class="content_box_main padding_distance" >
+						<div class="box_shadow">
+							<p>客户信息</p>
+							<div class="order_detail" id="order_detail">
+								
+							</div>
+						</div>
+						<!--照片管理-->
+						<div class="box_shadow">
+							<p>照片管理</p>
+							
+							<div  class="photo_super">
+							<form action="" method="post" enctype="multipart/form-data" id="cus_pic">
+								<div class="photo_super_box">
+									<span>客户体型参考图片</span>
+									<div class="member_pho ">
+										<!-- <img src="../images/photo_super_03.jpg"> -->
+											<div class="positive border">
+												<img class="img-1"  src="../images/positive.jpg"/>
+											</div>
+											<div class="reference_Picture">正面
+												<input type="radio" name="upload" value="1" class="upload_pho upload_pho+1 " />
+											</div>
+											<input type="file"   multiple="multiple" name='upload' value="1" id="positive file-1"  class="cfile inputfile positive"/>
+											
+									</div>
+									<div class="member_pho ">
+										<!-- <img src="../images/photo_super_03.jpg"> -->
+											<div class="back border">
+												<img class="img-2" src="../images/back.jpg"/>
+											</div>
+											<div class="reference_Picture">背面
+												<input type="radio"  name="upload" value="2" class="upload_pho upload_pho+2"/>
+											</div>
+											<input type="file" multiple="multiple" name="upload" class="cfile inputfile back" id='file-2'/>
+										
+									</div>
+									<div class="member_pho ">
+											<div class="side border">
+												<img class="img-3" src="../images/side.jpg"/>
+											</div>
+										<!-- <img src="../images/photo_super_03.jpg"> -->
+											<div class="reference_Picture">侧面
+												<input type="radio" name="upload" value="3" class="upload_pho upload_pho+3"/>
+											</div>
+											<input type="file" multiple="multiple" name="upload" value="3" class="cfile inputfile side"  id='file-3'/>
+										
+									</div>
+								</div>
+								<!-- <p>
+									<input type="button" name="sub" value="上传" class="msubmit"  >
+								</p> -->
+							</form>
+						</div>
+						
+					</div>
+
+				</div><!--content_box结束-->
+			</div>
+		</div><!--admin-right结束-->
+	</body>
+	<script type="text/javascript">
+
+		// //加载左边菜单
+		
+		 var con = new common();
+		 con.leftMenu();
+		 new member_list({page:1,status:0});
+		//显示file
+		$(document).ready(function(){
+
+			$('.upload_pho').click(function(){
+				if($(this).attr("checked")=="checked"){
+					$(this).parent().siblings().show();
+					$(this).parent().parent().siblings().children(".cfile").hide();
+					//$(this).parent().parent().siblings().children(".cfile").val("");
+
+					//alert(1);
+
+				}
+				
+
+			})
+		});
+	</script>
+</html>

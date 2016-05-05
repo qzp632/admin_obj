@@ -1,0 +1,124 @@
+<!DOCTYPE >
+<html lang="zh-CN">
+	<!-- {include file=head.html} -->
+
+<head id="header">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<title>良衣后台管理</title>
+	<link href="../css/css.css" rel="stylesheet" type="text/css" / >
+<!-- 	<link href="../css/normalize.css" rel="stylesheet" type="text/css" / > -->
+	<script type="text/javascript" src="../common/jquery.js"></script>
+	<script type="text/javascript" src="../config/config.js"></script>
+	<script type="text/javascript" src="../common/common.js"></script>
+	<script type="text/javascript" src="../controller/modifyPassword.js"></script>
+	<script type="text/javascript" src="../common/lang.js"></script>
+	<script type="text/javascript" src="../controller/member_list.js"></script>
+	<script type="text/javascript" src="../common/fenye.js"></script>
+	
+</head>
+
+
+	<body>
+		<div class="admin_left">
+			<div class="admin_name">后台管理系统</div>
+			<div class="admin_auth">
+				<img src="../images/pic_07.png" alt="管理员头像" class="pic">
+				<span class="auth">
+					<a>Admin</a>
+					<a class="a_auth">管理员</a>
+				</span>
+			</div>
+			<ul class="ul_bj" id="ul_bj">
+
+			</ul>
+		</div>
+		<div class="admin_right">
+			<div class="blue_bj" style="width:100%;height:50px;background:#0f4f7d;border-left:1px solid #1e6498;"></div>
+			<div class="white_bj">
+				<div class="admin_top" id="admin_top">
+					
+				</div><!--admin_top结束-->
+			</div><!--white_bj结束-->
+			<div class="gray_bj">
+				<div class="content_box">
+					<div class="content_box_top">
+						<div class=content_box_top_pic>
+							<img src="../images/hylb.png"/ alt="会员列表">
+						</div>
+						<span class="member">会员列表</span>
+					</div><!--content_box_top结束-->
+<!-- 					<a href="order.html" style="border: 1px solid #bbd0e5;background-color: #0f4f7d;border-radius: 5px;color: #fff;
+				margin-left:40px;margin-top: 20px;text-decoration: none;padding: 3px 15px;display: block;width: 80px;
+				display: block;width: 80px;height: 30px;line-height: 30px;text-align: center;">添加会员</a> -->
+					<!--content_box_top结束-->
+					<div class="search_box">
+						<span class="add_btn" ><a href="#" onclick="pupopen()">添加会员</a></span>
+						<div class="search" style="float: right" >
+							
+							<input type="text" name="search" placeholder="可输入手机号码进行查询"/ id="search">
+							<img src="../images/search.png"/ id="imgBtn" style="cursor:pointer;">
+						</div>
+					</div>
+					<div style="clear: both;"></div>
+					<div class="content_box_main">
+						<table style='width:100%;border-collapse:collapse;'  id="content" cellpadding="0" cellspacing="0" >
+							<tr id='trs'>
+								<th>编号</th>
+								<th>手机号码</th>
+								<th>姓名</th>
+								<th>最近登陆</th>
+								<th>注册时间</th>
+								<th>照片管理</th>
+								<th>量体信息</th>
+								<th>下单</th>
+							</tr>
+						</table>
+					</div>
+					<div class="page" style="margin-top: 20px; font-family:'微软雅黑';font-size: 12px;">
+						<span id="prev">上一页</span>
+						<span id="next">下一页</span>
+						<span id="current">当前页&nbsp;<input style="width:40px;height:23px; border:1px solid #cfcbc8;	" type="text" id="dq" value="" /></span>
+						<span id="zy"></span>
+					</div>
+				</div><!--content_box结束-->
+			</div>
+		</div><!--admin-right结束-->
+	<!--弹出修改表单-->
+		<!--修改js-->
+
+		<div id="add_mem_bg"></div>
+		<div id="add_mem_popbox">
+			<span  onclick="add_mem_close()" style="font-family: 微软雅黑;">X</span>
+			<p>添加会员</p>
+			
+				<div class="add_product_tab" id="add_product_tab">
+					<div class="div_span">
+							<a>姓名：</a>
+							<input type="text" class="memberName" placeholder="">
+						
+					</div>
+					<div class="div_span">
+							<a>电话：</a>
+							<input type="text" class="memberPhone" placeholder="">
+						
+					</div>
+					
+
+				</div>
+				<input type="submit" name="sub" value="确认添加" class="member_input" />
+		
+		</div>
+	<script type="text/javascript">
+		//页面初始化显示
+		new member_list({page:1,status:0})
+		var con = new common();
+		con.leftMenu();
+		branchpage(member_list,data,"phone");//根据手机号码来查找
+	</script>
+	</body>
+</html>				
+
+

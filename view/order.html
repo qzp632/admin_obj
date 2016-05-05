@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta name="save" content="history">
+		<title>良衣后台管理</title>
+		<style type="text/css">
+		.hides{
+			color:red;
+		}
+		</style>
+		<link href="../css/css.css" rel="stylesheet" type="text/css" / >
+		<script type="text/javascript" src="../common/jquery.js"></script>
+		<script type="text/javascript" src="../config/config.js"></script>
+		<script type="text/javascript" src="../common/common.js"></script>
+		<script type="text/javascript" src="../common/lang.js"></script>
+		<script type="text/javascript" src="../controller/add_order.js"></script>
+		<script type="text/javascript" src="../controller/modifyPassword.js"></script>
+		<script type="text/javascript" src="../controller/member_list.js"></script>
+	</head>
+	<body>
+		<div class="admin_left">
+			<div class="admin_name">后台管理系统</div>
+			<div class="admin_auth">
+				<img src="../images/pic_07.png" alt="管理员头像" class="pic">
+				<span class="auth">
+					<a>Admin</a>
+					<a class="a_auth">管理员</a>
+				</span>
+			</div>
+
+			<ul class="ul_bj" id="ul_bj">
+
+			</ul>
+		</div>
+		<div class="admin_right">
+			<div class="blue_bj" style="width:100%;height:50px;background:#0f4f7d;border-left:1px solid #1e6498;"></div>
+			<div class="white_bj">
+				<div class="admin_top" id="admin_top">
+					
+				</div><!--admin_top结束-->
+			</div><!--white_bj结束-->
+			<div class="gray_bj">
+				<div class="content_box">
+					<div class="content_box_top">
+						<div class=content_box_top_pic>
+							<img src="../images/hylb.png"/ alt="会员列表">
+						</div>
+						<span>订单列表&nbsp;>&nbsp;添加订单</span>
+					</div><!--content_box_top结束-->
+					<div class="content_box_main padding_distance" style="position: relative;">
+						<div class="box_shadow" style="position: relative;height: 240px">
+							<p>客户信息</p>
+							<p style="position: absolute;top: 10px;left:100px;">清空<input type="checkbox" class="clear_Btn" /></p>
+							<div class="order_detail" style="width: 280px;float: left;">
+								<p><span class="hides">*</span>手机号码：<input type="text" class="phoneNumber" /></p>	
+								<p><span class="hides">*</span>收&nbsp;&nbsp;件&nbsp;人：<input type="text" class="name" /></p>
+								<p><span class="hides">*</span>收件地址：<input type="text"class="consignee_address"></p>
+							</div>
+							<div class="order_detail" style="float: left;width: 280px;">
+								<p><span class="hides">*</span>着装顾问：<input type="text" class="dress_Consultants" /></p>
+								<p><span class="hides">*</span>销 &nbsp;售&nbsp;员：<input type="text" class="salesman" /></p>
+								<p>
+								<span class="hides">*</span>量体方式：<select class="mode_volume">
+									<option>--请选择--</option>
+									<option value="1">上门</option>
+									<option value="2">自主提供</option>
+									<option value="3">系统数据</option>
+								</select>
+								</p>
+							</div>
+							<div class="order_detail" style="float: left;width: 280px;">
+								<p><span class="hides">*</span>快递单号：<input type="text" class="courier_number" /></p>
+								<p><span class="hides">*</span>快递时间：<input type="date" style="width: 130px;" id="-xl" class="delivery_time"></p>
+								<p>
+								<span class="hides">*</span>选择工厂：<select class="mode_volume factory_detail">
+									<option>--请选择工厂--</option>
+								</select>
+								</p></br><br/>
+								<p>
+								<span class="hides">*</span>支付方式：<select class="mode_volume pay_typetinyin">
+									<option>--选择支付方式--</option>
+									<option value="1">线下</option>
+									<option value="2">微信</option>
+									<option value="3">支付宝</option>
+									<option value="4">系统更改</option>
+									<option value="5">银行对公</option>
+								</select>
+								</p>
+							</div>
+							<br/>
+							<p style="position: absolute;top: 132px;left: 0">
+								<span class="order_volume_size" >
+									<span style="vertical-align:top;" >快递备注:</span>
+									<textarea class="user_Count"></textarea>
+								</span>
+							</p>
+						</div>
+
+						<!--照片管理-->
+						<div class="box_shadow">
+							<p>下单</p>
+							
+							<form action="" method="get" class="order">
+								<p>
+									<span class="order_volume_size">
+										<label>
+											<span class="hides ltch" value='.ltch'>*</span>量体尺寸
+											<input type="radio" name="size" value="0" class="order_volume_size_right radioclass btn volumeSize count_Btn">
+										</label>
+									</span>
+									<span class="order_volume_size">
+										<label>
+											<span class="hides">*</span>标准码
+											<input type="radio" name="size" value="1" class="btn standard count_Btn">
+										</label>
+										<span class="standard_option" style="display: none;">
+											<select class="standard_size collar">
+												<option>--请选择--</option>
+												<option value="37">37</option>
+												<option value="38">38</option>
+												<option value="39">39</option>
+												<option value="40">40</option>
+												<option value="41">41</option>
+												<option value="42">42</option>
+												<option value="43">43</option>
+											</select>
+											<select class="fit_degree standard_code_size">
+												<option>--请选择--</option>
+												<option value="fit">合身</option>
+												<option value="slin">修身</option>
+												<option value="loosn">宽松</option>
+											</select>
+										</span>
+									</span>
+							<p style="float: right;margin-right: 150px">
+							<span class="order_volume_size" >
+								<span style="vertical-align:top;" >其他备注:</span>
+								<textarea class="other_Count"></textarea>
+							</span>
+						</p>
+								</p>
+							<div class="">
+								<p>
+									<span class="order_volume_size">
+										领&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型
+										<select class="collar_Shape collar_type pullclass">
+											<option>--请选择--</option>
+											<option value="standed_collar">标准领</option>
+											<option value="cutaway_collar">八字领</option>
+											<option value="honzcntal_collar">一字领</option>
+											<option value="button_dawn_collar">领尖扣领</option>
+											<option value="square_colla">小方领</option>
+											<option value="round_collar">圆领</option>
+											<option value="wing_collar">礼服领</option>
+											<option value="stand_collar">立领</option>
+											<option value="hidden_button_collar">暗扣领</option>
+											<option value="other">其他</option>
+										</select>
+									</span>
+								</p>
+								<p>
+									<span class="order_volume_size ">
+										袖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型
+										<select class="sleeve sleeve_linging pullclass">
+											<option>--请选择--</option>
+											<option value="single_button_cut_angle">单扣截角</option>
+											<option value="single_button_rand_angle">单扣圆角</option>
+											<option value="single_button_straight_angle">单扣直角</option>
+											<option value="dou_cut_angle">双扣截角</option>
+											<option value="dou_straight_angle">双扣圆角</option>
+											<option value="dou_straight_straight_angle">双扣直角</option>
+											<option value="french_cut_angle">法式截角</option>
+											<option value="french_round_angle">法式圆角</option>
+											<option value="french_straight_angle">法式直角</option>
+											<option value="other">其他</option>
+										</select>
+									</span>
+								</p>
+								<p>
+									<span class="order_volume_size">
+										门&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;襟
+										<select class="placket pullclass">
+											<option>--请选择--</option>
+											<option value="frant_strap">明门襟</option>
+											<option value="flat_strap">平门襟</option>
+											<option value="hidden_strap">暗门襟</option>
+										</select>
+									</span>
+								</p>
+								<p>
+									<span class="order_volume_size">
+										面&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;料
+										<select class="fabric fabric_code pullclass" id="select" onkeydown="Select.del(this,event)" onkeypress="Select.write(this,event)">
+											<option>--请选择--</option>
+											
+										</select>
+										<!-- <input type="button" value="获取选择值" id="test" onclick="test();"/> -->
+									</span>
+									<script>
+										var Select = {
+										del : function(obj,e){
+										if((e.keyCode||e.which||e.charCode) == 8){
+										var opt = obj.options[0];
+										opt.text = opt.value = opt.value.substring(0, opt.value.length>0?opt.value.length-1:0);
+										}
+										},
+										write : function(obj,e){
+										if((e.keyCode||e.which||e.charCode) == 8)return ;
+										var opt = obj.options[0];
+										opt.selected = "selected";
+										opt.text = opt.value += String.fromCharCode(e.charCode||e.which||e.keyCode);
+										}
+										}
+										function test(){
+										alert(document.getElementById("select").value);
+										}
+										</script>
+								</p>
+								<p>
+									<span class="order_volume_size">
+										<span class="hides">*</span>数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量
+										<input type="text" name="" value="" class="input_style order_count pullclass">
+									</span>
+								</p>
+								<p>
+									<span class="order_volume_size">
+										打折金额
+										<input type="text" name="" value="" class="input_style discount_amount pullclass">
+									</span>
+								</p>
+								<p>
+									<span class="order_volume_size">
+										打折原因
+										<input type="text" name="" value="" class="input_style discount_reasons pullclass">
+									</span>
+								</p>
+								<p>
+									<span class="order_volume_size">
+										<label>
+											绣&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;字
+											<input id="embroidered" type="checkbox" name="" value="绣字" class="order_volume_size_rightt Embroidered count_Btn pullclass">
+										</label>
+										<label style="visibility: hidden;" class="show_hide">
+											绣字内容
+										</label>
+										<input id="embroideredText"  style="visibility: hidden;" type="text" class="order_volume_size_right input_style show_hide embroidered_text pullclass">
+
+										<label style="visibility: hidden;" class="show_hide">
+											字&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;体
+										</label>
+										<select id="embroidered_font" style="visibility: hidden;" class="typeface embroidered_font pullclass show_hide">
+											<option>--请选择--</option>
+											<option value="normal">正体</option>
+											<option value="swash">花体</option>
+											<option value="italic">斜体</option>
+										</select>
+									</span>
+								</p>
+
+								<p>
+									<span class="order_volume_size">
+										<label>
+											口&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;袋
+											<input  type="checkbox" name="" value="口袋" class="order_volume_size_rightt pocket_Btn count_Btn">
+										</label>
+										<label>
+											白领白袖
+											<input  type="checkbox" name="" value="白领白袖" class="white_collar count_Btn">
+										</label>
+									</span>
+								</p>
+								<p>
+									<span class="order_volume_size">
+										二&nbsp;维&nbsp;&nbsp;码
+										<input type="text" name="" value="" class="input_style item_qr pullclass">
+									</span>
+								</p>
+								<p>
+									<input type="button" name="sub" id="addbtn" value="添加订单" class="order_sub">
+								</p>
+							</form>
+						</div>				
+					</div>
+				</div><!--content_box结束-->
+			</div>
+		</div><!--admin-right结束-->
+		<script type="text/javascript">
+			var con = new common();
+			con.leftMenu();
+		</script>
+
+	</body>
+</html>

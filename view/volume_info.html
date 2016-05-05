@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<title>良衣后台管理</title>
+		<link href="../css/css.css" rel="stylesheet" type="text/css" / >
+	<link href="../css/normalize.css" rel="stylesheet" type="text/css" / >
+	<script type="text/javascript" src="../common/jquery.js"></script>
+	<script type="text/javascript" src="../config/config.js"></script>
+	<script type="text/javascript" src="../common/common.js"></script>
+	<script type="text/javascript" src="../common/lang.js"></script>
+
+		<script type="text/javascript" src="../controller/modifyPassword.js"></script>
+	<script type="text/javascript" src="../controller/member_list.js"></script>
+	<script type="text/javascript" src="../controller/volume_info.js"></script>
+	<script type="text/javascript" src="../common/fenye.js"></script>
+	</head>
+	<body>
+		<div class="admin_left">
+			<div class="admin_name">后台管理系统</div>
+			<div class="admin_auth">
+				<img src="../images/pic_07.png" alt="管理员头像" class="pic">
+				<span class="auth">
+					<a>Admin</a>
+					<a class="a_auth">管理员</a>
+				</span>
+			</div>
+			<ul class="ul_bj" id="ul_bj">
+			</ul>
+		</div>
+		<div class="admin_right">
+			<div class="blue_bj" style="width:100%;height:50px;background:#0f4f7d;border-left:1px solid #1e6498;"></div>
+			<div class="white_bj">
+				<div class="admin_top" id="admin_top">
+					
+				</div><!--admin_top结束-->
+			</div><!--white_bj结束-->
+			<div class="gray_bj">
+				<div class="content_box">
+					<div class="content_box_top">
+						<div class=content_box_top_pic>
+							<img src="./../images/hylb.png"/ alt="会员列表">
+						</div>
+						<span>会员列表&nbsp;>&nbsp;量体信息</span>
+					</div><!--content_box_top结束-->
+					<div class="content_box_main padding_distance" >
+						<div class="box_shadow">
+							<p>客户信息</p>
+							<div class="order_detail" id="viewOrderDetail">
+								
+								
+							</div>
+						</div>
+						<!--量体信息-->
+						<div class="box_shadow">
+							<p>量体信息</p>
+							<div class="volume_information">
+							<!--量体尺寸-->
+									<div class="volume_size p_font">
+										<p>量体尺寸</p>
+										<hr/ style="color:#fff; margin-top: 10px; width: 99%; float: right;">
+										<table border="0" cellpadding="0" cellspacing="0" class="volume_size_table">
+											<tr>
+												<td>领&nbsp;&nbsp;&nbsp;围</td>
+												<td>
+													<input type="text" class="collar_opening"/>
+												</td>
+												<td>胸&nbsp;&nbsp;&nbsp;围</td>
+												<td>
+													<input type="text" class="chest_width"/>
+												</td>
+											</tr>
+											<tr>
+												<td>中&nbsp;&nbsp;&nbsp;腰</td>
+												<td>
+													<input type="text" class="middle_waisted"/>
+												</td>
+												<td>摆&nbsp;&nbsp;&nbsp;围</td>
+												<td>
+													<input type="text" class="swing_around"/>
+												</td>
+											</tr>
+											<tr>
+												<td>臀&nbsp;&nbsp;&nbsp;围</td>
+												<td>
+													<input type="text" class="arm_width"/>
+												</td>
+												<td>小&nbsp;&nbsp;&nbsp;臂</td>
+												<td>
+													<input type="text" class="foream"/>
+												</td>
+											</tr>
+											<tr>
+												<td>左腕围</td>
+												<td>
+													<input type="text" class="left_wrist_width"/>
+												</td>
+												<td>右腕围</td>
+												<td>
+													<input type="text" class="right_wrist_width"/>
+												</td>
+											</tr>
+											<tr>
+												<td>肩&nbsp;&nbsp;&nbsp;宽</td>
+												<td>
+													<input type="text" class="should_width"/>
+												</td>
+												<td>袖&nbsp;&nbsp;&nbsp;长</td>
+												<td>
+													<input type="text" class="sleeve_length"/>
+												</td>
+											</tr>
+											<tr>
+												<td>后衣长</td>
+												<td>
+													<input type="text" class="back_length"/>
+												</td>
+												<td>前衣长</td>
+												<td>
+													<input type="text" class="front_length"/>
+												</td>
+											</tr>
+											<tr>
+												<td>前胸围</td>
+												<td>
+													<input type="text" class="cross_front"/>
+												</td>
+												<td>后背宽</td>
+												<td>
+													<input type="text" class="cross_back"/>
+												</td>
+											</tr>
+										</table>
+									</div>
+									<!--加工尺寸-->
+									<div class="machining_size p_font">
+										<p>加工尺寸</p>
+										<hr/ style="color:#fff; margin-top: 10px; width: 99%; float: right;">
+										<table border="0" cellspacing="0" cellpadding="0" class="machining_size_table">
+											<tr>
+												<td>胸&nbsp;&nbsp;&nbsp;围</td>
+												<td>
+													<input type="text" class="processed_chest_width"/>
+												</td>
+												<td>中&nbsp;&nbsp;&nbsp;腰</td>
+												<td>
+													<input type="text" class="processed_middle_waisted"/>
+												</td>
+											</tr>
+											<tr>
+												<td>摆&nbsp;&nbsp;&nbsp;围</td>
+												<td>
+													<input type="text" class="processed_swing_around"/>
+												</td>
+												<td>臂&nbsp;&nbsp;&nbsp;围</td>
+												<td>
+													<input type="text" class="processed_arm_width"/>
+												</td>
+											</tr>
+											<tr>
+												<td>左腕围</td>
+												<td>
+													<input type="text" class="processed_left_wrist_width"/>
+												</td>
+												<td>右腕围</td>
+												<td>
+													<input type="text" class="processed_right_wrist_width"/>
+												</td>
+											</tr>
+											<tr>
+												<td>身&nbsp;&nbsp;&nbsp;高</td>
+												<td>
+													<input type="text" class="height"/>
+												</td>
+												<td>体&nbsp;&nbsp;&nbsp;重</td>
+												<td>
+													<input type="text" class="weight"/>
+												</td>
+											</tr>
+											<tr>
+												<td>体&nbsp;&nbsp;&nbsp;型</td>
+												<td>
+													<select class="body_shape">
+														<option disabled="disabled" >--请选择体型--</option>
+														<option value="normal">一般</option>
+														<option value="thin">纤细</option>
+														<option value="rich">富贵</option>
+														<option value="little_fat">微胖</option>
+														<option value="strong">强壮</option>
+													</select>
+												</td>
+												<td>站&nbsp;&nbsp;&nbsp;姿</td>
+												<td>
+													<select class="station_layout">
+														<option disabled="disabled">--请选择站姿--</option>
+														<option value="normal">普通</option>
+														<option value="raised_chest">挺胸</option>
+														<option value="humpbacked">驼背</option>
+														<option value="coax_back">拱背</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<td>肩&nbsp;&nbsp;&nbsp;宽</td>
+												<td>
+													<select class="shoulder">
+														<option disabled="disabled" >--请选择肩宽--</option>
+														<option value="normal">普通</option>
+														<option value="xiaoping_shoulder">小平肩</option>
+														<option value="daping_shoulder">大平肩</option>
+														<option value="small_shoulder">小溜肩</option>
+														<option value="big_shoulder">大溜肩</option>
+													</select>
+												</td>
+												<td>腹&nbsp;&nbsp;&nbsp;部</td>
+												<td>
+													<select class="abdomen">
+														<option disabled="disabled" >--请选择腹部--</option>
+														<option value="flat_belly">平腹</option>
+														<option value="micro_abdominal">微腹</option>
+														<option value="upper_abdomen">大腹</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<td>备&nbsp;&nbsp;&nbsp;注</td>
+												<td colspan="4" >
+													<textarea style="margin-top: 10px;" class="note" ></textarea>
+												</td>
+											</tr>
+											
+										</table>
+									</div>
+									<div style="clear: both;"></div>
+									<p>
+										<input type="submit" name="sub" value="提交" class="volume_sub"/>
+									</p>
+							</div>
+						</div>
+						
+					</div>
+
+				</div><!--content_box结束-->
+			</div>
+		</div><!--admin-right结束-->
+
+	</body>
+	
+		<script type="text/javascript">
+		//加载左边菜单
+		
+		var con = new common();
+		con.leftMenu();
+		new member_list({page:1,status:0});
+
+
+
+
+		function password(){
+			
+			
+		
+		};
+
+
+
+
+		function passwordclose(){
+				
+		}
+		
+		
+	</script>
+</html>

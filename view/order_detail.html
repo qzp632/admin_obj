@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<title>良衣后台管理</title>
+		<link href="../css/css.css" rel="stylesheet" type="text/css" / >
+		<style type="text/css">
+		body{
+			font-size: 9px;
+		}
+		.cy td{
+			padding: 9px 20px;
+		}
+		.speed{
+			width: 600px;
+			overflow: hidden;
+			float: right;
+			margin-right: 0px;
+		}
+		.speed li{
+			float: left;
+		}
+		.speed li img{
+			width: 100px;
+			height: 35px;
+		}
+		.pubs,.sdf td{
+			font-weight: bold;
+			color: #000;
+		}
+		</style>
+		<script type="text/javascript" src="../common/jquery.js"></script>
+		<script type="text/javascript" src="../common/jquery.jqprint-0.3.js"></script>
+		<script type="text/javascript" src="../config/config.js"></script>
+		<script type="text/javascript" src="../controller/modifyPassword.js"></script>
+		<script type="text/javascript" src="../common/common.js"></script>
+		<script type="text/javascript" src="../common/lang.js"></script>
+		<script type="text/javascript" src="../controller/order_detail.js"></script>
+	</head>
+	<body>
+		<div class="admin_left">
+			<div class="admin_name">后台管理系统</div>
+			<div class="admin_auth">
+				<img src="../images/pic_07.png" alt="管理员头像" class="pic">
+				<span class="auth">
+					<a>Admin</a>
+					<a class="a_auth">管理员</a>
+				</span>
+			</div>
+			<ul class="ul_bj" id="ul_bj">
+
+			</ul>
+		</div>
+
+		<div class="print">
+		<div class="admin_right">
+			<div class="blue_bj" style="width:100%;height:50px;background:#0f4f7d;border-left:1px solid #1e6498;"></div>
+			<div class="white_bj">
+				<div class="admin_top" id="admin_top">
+					
+				</div><!--admin_top结束-->
+			</div><!--white_bj结束-->
+			<div class="gray_bj" id="ddd" >
+				<div class="content_box">
+					<div class="content_box_top">
+						<div class=content_box_top_pic>
+							<img src="../images/hylb.png"/ alt="订单详情">
+						</div>
+						<span>订单详情</span>
+					</div><!--content_box_top结束-->
+					<div style="width: 94%;margin: 0 auto; padding: 3px 0 0 0" >
+						<p class="p1" style="float: left;font-size: 13px;">
+							请选择子订单:<select class="products"></select><span style="font-size: 10px;color: red;">当前有<span class="sun_count" style="color: black;font-weight: bold;"></span>个子菜单</span>
+						</p>
+						<input type="button" style="float: right;display: block; " class="order_Print" onclick="Print()" value="打印此页" /></input>
+					</div>
+					<div class="content_box_main padding_distance">
+						<div class="box_shadow m_top" >
+							<p class="p2">客户信息</p>
+							<div class="order_detail" style="font-size: 8px;">
+								<p class="order_detail_col">
+									<span style="width: 310px;display: inline-block;float: left;">订单号：<span class="member_id">122464646416</span></span>
+									<span>姓名：<span class="name" style="display: inline-block;">叶南天</span></span>
+								</p>
+								<p class="order_detail_col">
+									<span style="width: 310px;display: inline-block;float: left">地址：<span class="address">平凉路988号</span></span>
+									<span class="span_left" style="display: inline-block;margin-left: 0">发货提醒:<span class="express_note"></span></span>
+								</p>
+								<p class="order_detail_col order_hidden">
+									<span style="width: 310px;display: inline-block;float: left">当前订单状态： <span class="status" ></span></span>
+									<span class="span_left" style="display: inline-block;margin-left: 0">
+										操作:
+										<select class="update_Status">
+											<option value="0">等待接单</option>
+											<option value="1">已接单</option>
+											<option value="2">生产中</option>
+											<option value="3">完成</option>
+										</select>
+									</span>
+								</p>
+							</div>
+						</div>
+						<!--量体信息-->
+						<div class="box_shadow margin_tops" style="position: relative;height: 300px;">
+							<div class="dis" style="position: absolute;top: 30px;left: 20px;">
+							<table border="1" class="tbbs" cellpadding="0" cellspacing="0" style="height: 240px;">
+								<tr>
+									<th colspan="3" style="padding: 3px 0;" class="pubs">体型描述</th>
+								</tr>
+								
+								<tr>
+									<td class="pubs">身高cm/体重kg</td>
+										<td class="height">172</td>
+										<td class="weight">72</td>
+								</tr>
+								<tr>
+									<td class="pubs">体型</td>
+									<td colspan="2" class="body_shape"></td>
+								</tr>
+								<tr>
+									<td class="pubs">肩部</td>
+									<td colspan="2" class="shoulder"></td>
+								</tr>
+								<tr>
+									<td class="pubs">腹部</td>
+									<td colspan="2" class="abdomen"></td>
+								</tr>
+								<tr>
+									<td class="pubs">身型</td>
+									<td colspan="2" class="station_layout"></td>
+								</tr>
+							</table>	
+							</div>
+							<!--衬衣尺寸表格-->
+							<div class="dis" style="position: absolute;top: 30px;left: 300px;">
+								<table border="1" cellpadding="0" cellspacing="0" class="cy">
+									<tr>
+										<th colspan="8" style="padding: 5px 0" class="pubs">衬衣尺寸（成衣尺寸）</th>
+									</tr>
+									<tr>
+										<td class="pubs">领围</td>
+										<td class="collar_opening"></td>
+										<td class="pubs">肩宽</td>
+										<td class="should_width"></td>
+										<td class="pubs">袖长</td>
+										<td class="sleeve_length"></td>
+
+									</tr>
+										<tr>
+											<td class="pubs">胸围</td>
+											<td class="chest_width"></td>
+											<td class="pubs">前衣长</td>
+											<td class="front_length"></td>
+											<td class="pubs">左袖口</td>
+											<td class="left_wrist_width"></td>
+										</tr>
+										<tr>
+											<td class="pubs">中腰</td>
+											<td class="middle_waisted"></td>
+											<td class="pubs">后衣长</td>
+											<td class="back_length"></td>
+											<td class="pubs">右袖口</td>
+											<td class="right_wrist_width"></td>
+										</tr>
+										<tr>
+											<td class="pubs">下腰</td>
+											<td class="swing_around"></td>
+											<td class="pubs">臂围</td>
+											<td class="arm_width"></td>
+											<td class="pubs">前胸</td>
+											<td class="cross_front"></td>
+										</tr>
+										<tr>
+											<td></td>
+											<td></td>
+											<td class="pubs">小臂围</td>
+											<td class="foream"></td>
+											<td class="pubs">后背</td>
+											<td class="cross_back"></td>
+										</tr>		
+								</table>
+							</div>
+						</div>
+
+						<!--订单详情-->
+						<div class="box_shadow liss">
+							<div class="order_detail_box" style="border:1px solid #797979;">
+								<table border="1" cellspacing="0" style="width: 600px;float:left; " cellpadding="0" class="order_detail">
+									<!-- <tbody> -->
+										<tr class="sdf">
+											<td>尺寸类别</td>
+											<td>面料</td>
+											<td>领款</td>
+											<td>袖款</td>
+											<td>白领白袖</td>
+											<td>门襟</td>
+											<td>口袋</td>
+										</tr>
+										<tr>
+											<td>标准尺寸</td>
+											<td class="fabric_code"></td>
+											<td class="collar_type"></td>
+											<td class="sleeve_linging"></td>
+											<td class="white_collar_white_sleeve"></td>
+											<td class="placket"></td>
+											<td class="packet"></td>
+										</tr>
+										<tr class="sdf">
+											<td class="sdf">领撑</td>
+											<td colspan="2">合身度</td>
+											<td>绣字内容</td>
+											<td colspan="2">字体</td>
+											<td>用料</td>
+										</tr>
+										<tr>
+											<td class="collar_stays"></td>
+											<td colspan="2" class="style"></td>
+											<td class="embroidered_text"></td>
+											<td colspan="2" class="embroidered_font"></td>
+											<td class="using"></td>
+										</tr>
+										<tr>
+											<td style="font-weight: bold;color: #000">备注</td>
+											<td colspan="6" class="note"></td>
+										</tr>
+									<!-- </tbody> -->
+								</table>
+								<!--二维码模块-->
+								<div class="qr_code" style="float: right; width:220px;margin-right: 250px; margin-top: 10px;">
+								<img style="width: 220px;" src="http://www.tailorism.com/images/weixin.jpg">
+								</div>
+						 			<ul class="speed">
+										<li>
+											<img class="im im1" src="../images/1.png">
+										</li>
+										<li>
+											<img class="im2" src="../images/2.png">
+										</li>
+										<li>
+											<img class="im3" src="../images/3.png">
+										</li>
+										<li>
+											<img class="im4" src="../images/4.png">
+										</li>
+										<li>
+											<img class="im5" src="../images/5.png">
+										</li>
+										<li>
+											<img class="im6" src="../images/6.png">
+										</li>
+									</ul>
+						 	   </div>
+						</div>
+						</div>
+						<!--客户体型-->
+						<div class="box_shadow chtx" >
+							<div class="customer_type" style="text-align: center;">
+								<p>客户参考图片</p>
+								<img src="../images/positive.jpg" name="img-1" class="imms im11" style="margin-left:-20px;">
+								<img src="../images/back.jpg" class="im22" name="img-2">
+								<img src="../images/side.jpg" class="im33" name="img-3">
+							</div>
+						</div><!--content_box结束-->
+					</div><!--admin-right结束-->
+	<script type="text/javascript">
+		var con = new common();
+		con.leftMenu();
+
+		//打印的方法
+		function  Print(){
+			order_Pdf();//调用打印的样式 
+			$("#ddd").jqprint();
+
+			//打印之后又回到默认样式
+			setTimeout(function(){
+				//一秒之后回到默认
+				location.reload();
+			},1000);	
+		}
+
+		//打印页面的样式
+		function order_Pdf(){
+			$(".user").css({"width":"550px","height":"850px","padding":"0","font-size":"10px","position":"relative"});
+			$(".order_detail_col").css({"width":"550px","font-size":"10px","float":"left"});
+			$(".m_top").css({"padding":"0"});
+			$(".order_detail").css({"margin-top":"0","border":"0","padding":"0"});
+			$(".order_detail p").css({"margin-top":"0"});
+			$(".box_shadow").css({"margin":"0 auto"});
+			$(".order_hidden").css({"display":"none"});
+			$(".man_top").css({"top":"60px","height":"200px","width":"165px","position":"absolute"});
+			$(".dis_one").css({"height":"200px","top":"27px","float":"right","font-size":"10px"});
+			$(".dis_one table").css({"height":"200px"});
+			$(".margin_tops").css({"height":"260px"});
+			$(".distwo").css({"top":"0","left":"0","width":"165px"});
+			$("table.order_detail").css({"margin-left":"0"});
+			$("#cy").css({"height":"200px"});
+			$("#cy th").css({"padding":"0px"});
+			$(".tbbs td").css({"font-size":"10px","padding":"5px 8px"})
+			$(".cy td").css({"font-size":"10px","padding":"5px 7px"});
+			$("#cy td").css({"padding":"0","margin":"0","font-size":"10px","line-height":"0"});
+			$(".dis_tab td").css({"padding":"0 10px"});
+			$(".liss").css({"width":"595px","position":"absolute","top":"420px","left":"50px","padding":"0"});
+			$(".box_shadow table.order_detail").css({"padding":"15px","margin":"0 auto"});
+			$(".qr_code img").css({"width":"70px","margin-left":"400px","margin-top":"-30px"});
+			$(".chtx").css({"padding":"0","margin":"0 auto","position":"absolute","width":"590px","margin-top":"250px","height":"250px"})
+			$(".chtx img").css({"display":"inline-block","width":"170px","height":"250px"});
+			$(".customer_type").css({"margin-top":"0","border":"0"});
+			$(".customer_type p").css({"line-height":"1.3em","padding-left":"100px","margin-top":"30px","width":"20px","height":"80px","position":"absolute","left":"-100px"});
+			$(".customer_type img").css({"padding":"0","position":"absolute","margin-left":"40px"});
+			$(".im11").css({"left":"10px","top":"10px"});
+			$(".im22").css({"left":"190px","top":"10px"});
+			$(".im33").css({"left":"370px","top":"10px"});
+			$(".order_detail_box").css("border","0");
+			$(".speed").css({"position":"absolute","top":""})
+			$(".speed img").css({"width":"70px","position":"absolute","top":"250px","z-index":"9999999999"});
+			$(".im6").css({"top":"250px","left":"450px"});
+			$(".im5").css({"top":"250px","left":"370px"});
+			$(".im4").css({"top":"250px","left":"290px"});
+			$(".im3").css({"top":"250px","left":"210px"});
+			$(".im2").css({"top":"250px","left":"130px"});
+			$(".im1").css({"top":"250px","left":"50px"});
+			$(".margin_tops").css({"padding":"7px"});
+			$(".dis").css({"top":"0"});
+			$(".order_detail td").css({"font-size":"10px","padding":"5px 8px"});
+			$(".order_Print").hide();
+		}
+	</script>
+	</body>
+</html>
